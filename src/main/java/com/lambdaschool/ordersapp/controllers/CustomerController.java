@@ -1,5 +1,6 @@
 package com.lambdaschool.ordersapp.controllers;
 
+import com.lambdaschool.ordersapp.models.Customer;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,12 +12,13 @@ import java.util.List;
 @RequestMapping("/customers")
 public class CustomerController
 {
-    // http://localhost:2019/customers/orders
-    @GetMapping(value = "/orders", produces = {"application/json"})
-    public ResponseEntity<?> listCustomerOrders()
-    {
-        List<Order>
-    }
+//    // http://localhost:2019/customers/orders
+//    @GetMapping(value = "/orders", produces = {"application/json"})
+//    public ResponseEntity<?> listCustomerOrders()
+//    {
+////        List<Customer>
+//        return null;
+//    }
 
     // http://localhost:2019/customers/customer/77
 
