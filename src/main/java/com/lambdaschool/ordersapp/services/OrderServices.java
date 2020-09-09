@@ -5,4 +5,7 @@ import com.lambdaschool.ordersapp.models.Order;
 public interface OrderServices
 {
     Order save(Order order);
+
+    Order findOrderByOrdnum(long ordnum);
+
 }

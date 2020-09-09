@@ -22,7 +22,7 @@ public class Order
     // foreign key relationship to Customer
     @ManyToOne
     @JoinColumn(name = "custcode", nullable = false)
-//    @JsonIgnoreProperties(value = "orders")
+    @JsonIgnoreProperties(value = "orders")
     private Customer custcode;
 
     private String orderdescription;
