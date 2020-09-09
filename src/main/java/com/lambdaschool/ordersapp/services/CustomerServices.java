@@ -9,4 +9,7 @@ public interface CustomerServices
     Customer save(Customer customer);
 
     List<Customer> findCustomerOrders();
+
+    List<Customer> findByCustCode(long custcode);
+
 }

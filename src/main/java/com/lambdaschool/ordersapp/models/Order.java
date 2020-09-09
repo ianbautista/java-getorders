@@ -1,5 +1,7 @@
 package com.lambdaschool.ordersapp.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
@@ -20,6 +22,7 @@ public class Order
     // foreign key relationship to Customer
     @ManyToOne
     @JoinColumn(name = "custcode", nullable = false)
+    @JsonIgnoreProperties(value = "orders")
     private Customer custcode;
 
     private String orderdescription;
@@ -27,6 +30,7 @@ public class Order
     // relationship to Payment
     @ManyToMany
     @JoinTable(name = "orderspayments", joinColumns = @JoinColumn(name = "ordnum"), inverseJoinColumns = @JoinColumn(name = "paymentid"))
+    @JsonIgnoreProperties(value = "orders")
     private Set<Payment> payments = new HashSet<>();
 
     // default constructor

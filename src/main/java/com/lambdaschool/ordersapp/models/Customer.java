@@ -1,5 +1,7 @@
 package com.lambdaschool.ordersapp.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.awt.*;
 import java.util.ArrayList;
@@ -29,10 +31,12 @@ public class Customer
     // foreign key relationship to Agent
     @ManyToOne
     @JoinColumn(name = "agentcode", nullable = false)
+    @JsonIgnoreProperties(value = "customers")
     private Agent agentcode;
 
     //relationship to Order
     @OneToMany(mappedBy = "custcode", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonIgnoreProperties(value = "custcode")
     private List<Order> orders = new ArrayList<>();
 
     //default constructor
