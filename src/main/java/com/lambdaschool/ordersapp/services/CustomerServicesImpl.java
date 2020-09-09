@@ -2,6 +2,7 @@ package com.lambdaschool.ordersapp.services;
 
 import com.lambdaschool.ordersapp.models.Customer;
 import com.lambdaschool.ordersapp.repositories.CustomersRepository;
+import com.lambdaschool.ordersapp.view.OrderCount;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -42,5 +43,12 @@ public class CustomerServicesImpl implements CustomerServices
     {
         List<Customer> customerList = custrepos.findByCustnameContainingIgnoringCase(subname);
         return customerList;
+    }
+
+    @Override
+    public List<OrderCount> countOrderByCustomer()
+    {
+        List<OrderCount> orderCountList = custrepos.findOrderCount();
+        return orderCountList;
     }
 }
