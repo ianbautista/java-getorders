@@ -10,6 +10,8 @@ public interface CustomerServices
 
     List<Customer> findCustomerOrders();
 
-    List<Customer> findByCustCode(long custcode);
+    Customer findByCustCode(long custcode);
+
+    List<Customer> findByCustomerName(String subname);
 
 }

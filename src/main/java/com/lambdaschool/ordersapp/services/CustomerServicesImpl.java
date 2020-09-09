@@ -31,9 +31,16 @@ public class CustomerServicesImpl implements CustomerServices
     }
 
     @Override
-    public List<Customer> findByCustCode(long custcode)
+    public Customer findByCustCode(long custcode)
     {
-        List<Customer> customerList = custrepos.findByCustcode(custcode);
+        Customer customer = custrepos.findByCustcode(custcode);
+        return customer;
+    }
+
+    @Override
+    public List<Customer> findByCustomerName(String subname)
+    {
+        List<Customer> customerList = custrepos.findByCustnameContainingIgnoringCase(subname);
         return customerList;
     }
 }

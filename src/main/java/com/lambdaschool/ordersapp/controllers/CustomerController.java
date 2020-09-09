@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -29,15 +28,21 @@ public class CustomerController
     }
 
     // http://localhost:2019/customers/customer/77
+    // http://localhost:2019/customers/customer/7
     @GetMapping(value = "/customer/{custcode}", produces = {"application/json"})
     public ResponseEntity<?> findCustomerByCustcode(@PathVariable long custcode)
     {
-        List<Customer> rtnList = customerServices.findByCustCode(custcode);
-        return new ResponseEntity<>(rtnList, HttpStatus.OK);
+        Customer customer = customerServices.findByCustCode(custcode);
+        return new ResponseEntity<>(customer, HttpStatus.OK);
     }
 
     // http://localhost:2019/customers/namelike/mes
-
     // http://localhost:2019/customers/namelike/cin
+    @GetMapping(value = "/namelike/{subname}", produces = {"application/json"})
+    public ResponseEntity<?> findCustomerBySubname(@PathVariable String subname)
+    {
+        List<Customer> rtnList = customerServices.findByCustomerName(subname);
+        return new ResponseEntity<>(rtnList, HttpStatus.OK);
+    }
 
 }

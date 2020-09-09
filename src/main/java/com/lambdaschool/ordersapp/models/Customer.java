@@ -156,4 +156,12 @@ public class Customer
     public void setAgentcode(Agent agentcode) {
         this.agentcode = agentcode;
     }
+
+    public List<Order> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(List<Order> orders) {
+        this.orders = orders;
+    }
 }

@@ -20,7 +20,7 @@ public class Payment
 
     // relationship to Order
     @ManyToMany(mappedBy = "payments")
-//    @JsonIgnoreProperties(value = "payments")
+    @JsonIgnoreProperties(value = "payments")
     private Set<Order> orders = new HashSet<>();
 
     //default constructor
